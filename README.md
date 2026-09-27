@@ -19,3 +19,15 @@ Open the Kaggle notebook or run locally:
 ```
 pip install pandas numpy matplotlib seaborn
 ```
+## Week 2: Building ML Models
+- Baseline (always "stay"): accuracy 73.46%
+- Best model: Logistic Regression, AUC 0.842, recall 0.921 at threshold 0.15
+- Top churn drivers (permutation importance): tenure, TotalCharges, Contract_Two year
+- Threshold chosen: 0.15, because a missed churner (PKR 6,000) costs 6x more than an 
+  unnecessary retention offer (PKR 1,000), so the cost-optimal threshold favors recall
+- Engineered features: n_services, is_new, charge_per_mo, price_jump; effect on AUC: 
+  0.8422 -> 0.8420 (no improvement — Random Forest likely already captures these 
+  interactions through combinations of raw features)
+- Biggest lesson:  The best model isn't the one with the highest accuracy — it's the one whose 
+  threshold and mistakes actually match what the business can afford, and Logistic Regression's 
+  interpretability made that decision far easier to defend than a black-box model would have.
