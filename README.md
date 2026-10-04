@@ -31,3 +31,12 @@ pip install pandas numpy matplotlib seaborn
 - Biggest lesson:  The best model isn't the one with the highest accuracy — it's the one whose 
   threshold and mistakes actually match what the business can afford, and Logistic Regression's 
   interpretability made that decision far easier to defend than a black-box model would have.
+  
+  ## Week 3: Model Optimization and Unsupervised Learning
+- Split-to-split accuracy range across 20 seeds: 0.780 to 0.828 (std 0.0104, theoretical SE 0.0107)
+- 5-fold CV AUC: LR 0.846 +/- 0.013, RF 0.844 +/- 0.011, XGBoost 0.850 +/- 0.012 (statistically tied)
+- Tuning: best RF params max_depth=8, max_features='sqrt', min_samples_leaf=20; grid vs random search time 134 s vs 144 s
+- Final model: tuned XGBoost, test AUC 0.8483 (used once), vs 0.842 AUC for my Week 2 best model; early stopping chose 247 trees
+- Customer segments (k = 4): Mid-tenure high spend (at risk) 43% churn, New low spend 32%, Loyal high spend bundled 14%, Long-tenure low spend 5%
+- PCA: 15 of 30 components explain 90% of the variance
+- Biggest lesson: The thing that surprised me most this week was One score from one split can fool you. The same model gave me 78% to 83% just by changing the split, so now I trust the average of 5-fold CV with its std.
