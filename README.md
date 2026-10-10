@@ -39,7 +39,7 @@ Notebook: `week3-optimization.ipynb`
 
 - Split-to-split accuracy range across 20 seeds: 0.780 to 0.828 (std 0.0104, theoretical SE 0.0107)
 - 5-fold CV AUC: LR 0.846 +/- 0.013, RF 0.844 +/- 0.011, XGBoost 0.850 +/- 0.012 (statistically tied)
-- Tuning: best RF params max_depth=8, max_features='sqrt', min_samples_leaf=20; grid vs random search time 103 s vs 114 s (24 settings each)
+- Tuning: best RF params max_depth=8, max_features='sqrt', min_samples_leaf=20; grid vs random search time 102 s vs 108 s (24 settings each)
 - Final model: tuned XGBoost, test AUC 0.8483 (used once), vs 0.842 AUC for my Week 2 best model (Logistic Regression); the gain is small and within CV noise, since XGBoost, LR and RF are statistically tied. Early stopping chose 247 trees
 - Customer segments (k = 4): Mid-tenure high spend (at risk) 43% churn, New low spend 32%, Loyal high spend bundled 14%, Long-tenure low spend 5%
 - PCA: 15 of 30 components explain 90% of the variance
